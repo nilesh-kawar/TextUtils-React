@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default function Navbar(props) {
     return (
         <div>
-        <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
+        <nav className={`navbar navbar-expand-lg navbar-${props.mode === 'light' ? props.mode : 'dark'} bg-${props.mode === 'light' ? props.mode : 'dark'}`}>   
             <div className="container-fluid">
             <a className="navbar-brand" href="/">{props.title}</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,8 +19,15 @@ export default function Navbar(props) {
                     <a className="nav-link" href="/">{props.aboutText}</a>
                 </li>
                 </ul>
+
+                <div className="colorPalletDiv">
+                    <button className='mx-2 btn btn-danger colorPallet' onClick={props.toggleModeRed}></button>
+                    <button className='mx-2 btn btn-primary colorPallet' onClick={props.toggleModeBlue}></button>
+                    <button className='mx-2 btn btn-success colorPallet' onClick={props.toggleModeGreen}></button>
+                    <button className='mx-2 btn btn-warning colorPallet' onClick={props.toggleModeYellow}></button>
+                </div>
                 <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light' }`}>
-                    <input className="form-check-input" onClick={props.toggleMode} type="checkbox" id="flexSwitchCheckDefault" />
+                    <input className="form-check-input" onClick={props.toggleModeDark} type="checkbox" id="flexSwitchCheckDefault" />
                     <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode === 'light' ? 'Dark' : 'Light'} Mode</label>
                 </div>
             </div>

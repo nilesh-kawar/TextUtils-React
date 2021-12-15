@@ -39,13 +39,13 @@ export default function TextForm(props) {
                     <h3 className="mb-3 mt-5">{props.heading}</h3>
                     <textarea className="form-control" value={text} rows="8" onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark' ? '#373c41' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}></textarea>
                 </div>
-                <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to UPPERCASE</button>
-                <button className="btn btn-primary mx-1" onClick={handleLowerClick}>Convert to lowercase</button>
+                <button className={`btn btn-${props.mode} mx-1`} onClick={handleUpClick}>Convert to UPPERCASE</button>
+                <button className={`btn btn-${props.mode} mx-1`} onClick={handleLowerClick}>Convert to lowercase</button>
                 {/* <button className="btn btn-primary" onClick={handleCapClick}>Convert to Capitalize</button> */}
             </div>
             <div className="container my-3">
                 <h3 className="mt-5">Your text summary</h3>
-                <p>{text.split(" ").length} words and {text.length} characters | {0.008 * text.split(" ").length} Minutes read</p>
+                <p>{text.length > 0 ? text.trim().split(" ").length : 0} words and {text.length} characters | {0.008 * text.split(" ").length} Minutes read</p>
                 
                 <h3  className="mt-3">Preview</h3>
                 <p>{text.length > 0 ? text : "Enter something to textbox above to preview it here"}</p>
