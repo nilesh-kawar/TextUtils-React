@@ -9,10 +9,14 @@ export default function Navbar(props) {
             <div className="container-fluid">
             {/* <Link className="navbar-brand" to="/">{props.title}</Link> */}
             <a className="navbar-brand" href="#">{props.title}</a>
+            {/* mobile light dark mode  */}
+            <div className={`form-check form-switch mobile text-${props.mode === 'light' ? 'dark' : 'light' }`}>
+                    <input className="form-check-input" onClick={props.toggleModeDark} type="checkbox" id="flexSwitchCheckDefault" />
+            </div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                     {/* <Link className="nav-link active" aria-current="page" to="/">{props.homeText}</Link> */}
@@ -29,7 +33,7 @@ export default function Navbar(props) {
                     <button className='mx-2 btn btn-success colorPallet' onClick={props.toggleModeGreen}></button>
                     <button className='mx-2 btn btn-warning colorPallet' onClick={props.toggleModeYellow}></button>
                 </div>
-                <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light' }`}>
+                <div className={`form-check form-switch  desktop text-${props.mode === 'light' ? 'dark' : 'light' }`}>
                     <input className="form-check-input" onClick={props.toggleModeDark} type="checkbox" id="flexSwitchCheckDefault" />
                     <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode === 'light' ? 'Dark' : 'Light'} Mode</label>
                 </div>

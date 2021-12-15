@@ -8,3 +8,14 @@ body{
   width: 30px;
   border-radius: 50%;
 }
+
+@media (min-width: 900px){
+  .mobile{
+    display: none;
+  }
+}
+@media (max-width: 900px){
+  .desktop{
+    display: none;
+  }
+}
