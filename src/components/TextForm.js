@@ -40,14 +40,14 @@ export default function TextForm(props) {
                     <textarea className="form-control" value={text} rows="8" onChange={handleOnChange} style={{backgroundColor: props.mode === 'dark' ? '#373c41' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }}></textarea>
                 </div>
                 <div className="text-center">
-                    <button className={`btn btn-${props.mode} mx-1 my-2`} onClick={handleUpClick}>Convert to UPPERCASE</button>
-                    <button className={`btn btn-${props.mode} mx-1 my-2`} onClick={handleLowerClick}>Convert to lowercase</button>
+                    <button disabled={text.length===0} className={`btn btn-${props.mode} mx-1 my-2`} onClick={handleUpClick}>Convert to UPPERCASE</button>
+                    <button disabled={text.length===0} className={`btn btn-${props.mode} mx-1 my-2`} onClick={handleLowerClick}>Convert to lowercase</button>
                     {/* <button className="btn btn-primary" onClick={handleCapClick}>Convert to Capitalize</button> */}
                 </div>
             </div>
             <div className="container my-3">
                 <h3 className="mt-5">Your text summary</h3>
-                <p>{text.length > 0 ? text.trim().split(" ").length : 0} words and {text.length} characters | {0.008 * text.split(" ").length} Minutes read</p>
+                <p>{text.split(" ").filter((e)=>{ return e.length!== 0 }).length} words and {text.length} characters | {0.008 * text.split(" ").filter((e)=>{ return e.length!== 0 }).length} Minutes read</p>
                 
                 <h3  className="mt-3">Preview</h3>
                 <p>{text.length > 0 ? text : "Enter something to textbox above to preview it here"}</p>
