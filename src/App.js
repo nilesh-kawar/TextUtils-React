@@ -3,12 +3,12 @@ import './App.css';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import About from './components/About';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+// import About from './components/About';
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
 
 function App() {
   const [alert, setAlert] = useState(null)
@@ -63,7 +63,8 @@ function App() {
   }
 
   return (
-    <Router>
+    <>
+    {/* <Router> */}
       <Navbar 
         title="TextUtils" 
         aboutText="About Us" 
@@ -76,17 +77,20 @@ function App() {
         toggleModeRed={toggleModeRed}
       />
       <Alert alert={alert} />
-      <Routes>
-        <Route exact path="/about" element={<About/>}/>
-        <Route exact path="/" element={
+      {/* <Routes> */}
+        {/* <Route exact path="/about" element={ */}
+        {/* <About/> */}
+        {/* }/> */}
+        {/* <Route exact path="/" element={ */}
           <TextForm 
             showAlert={showAlert}  
             mode={mode}
             heading="Enter the text to analyze" 
           />
-        }/>
-      </Routes>
-    </Router>
+        {/* }/> */}
+      {/* </Routes> */}
+    {/* </Router> */}
+    </>
   );
 }
 
